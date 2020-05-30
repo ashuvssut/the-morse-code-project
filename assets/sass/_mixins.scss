@@ -1,0 +1,13 @@
+@mixin flex-center(){
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin circular-button($bg-color, $margin, $dia){
+    background-color: $bg-color;
+    margin:0px $margin;
+    width: $dia;
+    height: $dia;
+    border-radius: 100%;
+}

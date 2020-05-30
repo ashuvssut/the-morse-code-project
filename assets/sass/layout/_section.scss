@@ -1,0 +1,18 @@
+section{
+    &#navbar{
+        background-color: $light-blue;
+        height: $navbar-height;
+        min-height: 70px;
+        @include flex-center();
+    }
+    &#level-board{
+        background-color: aqua;
+        height: 60px;
+    }
+    &#keyboard{
+        background-color: $light-blue;
+    }
+    &#love-msg{
+        height: 30px;
+    }
+}

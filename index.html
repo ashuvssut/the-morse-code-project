@@ -8,12 +8,91 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Learn Morse</title>
-        <script defer src="/assets/js/Morse-sound-generator.js"></script>
+        <script defer src="/assets/js/logic.js"></script>
+        <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+        <link rel="stylesheet" href="/assets/css/app.min.css">
+
+        <!--Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+        
+        <!--google Fonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!--font-awesome* 
+        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+        -->
     </head>
     <body>
-        <header></header>
-        <audio src="assets/audio/_0.mp3"></audio>
-        <audio src="assets/audio/_1.mp3"></audio>
-    
+        <section id="navbar" >
+            <nav class="navbar container" >
+                <div class="logo-div">
+                    <div class="logo-box">
+                        <img class="logo"src="assets/img/morse_logo.png" alt="morse_logo" >
+                    </div>
+                    <h1 class="title">Learn Morse</h1>
+                </div>
+                <ul class="main-menu">
+                    <strong class="main-menu">
+                        <li><a href="#">Note</a></li>
+                        <li><a href="#">How-To</a></li>
+                        <li><a href="#">About Me</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </strong>
+                </ul>
+            </nav>
+        </section>
+        
+        <section id="level-board">
+            <button id="previous-level" class="level-button">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </button>
+            
+            <h3>Level 
+                <span id="level-number">
+                    1
+                </span> 
+                <br> 
+                <span id="first-element">
+                    E
+                </span> 
+                    & 
+                <span id="second-element">
+                    T
+                </span>
+            </h3>
+            <button id="next-level" class="level-button">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </button>
+        </section>
+
+        <section id="visual">
+            <div class="visual container visual-div">
+                <button id="question-mark" class="visual-button">
+                    <i class="fa fa-question fa-2x" aria-hidden="true"></i>
+                </button>
+                <div class="visual-box">
+                    <pre>E</pre>
+                </div>
+                <button id="play" class="visual-button">
+                    <i class="fas fa-play fa-lg" aria-hidden="true"></i>
+                </button>
+            </div>
+        </section>
+
+        <section id="keyboard">
+            <div class="keyboard container keyboard-div">
+                <div class="keyboard">
+                    
+                </div>
+            </div>
+        </section>
+        <section id="love-msg">
+            <h3 >
+                Made with 
+                <i class="far fa-heart" ></i> 
+                from India.
+            </h3>
+        </section>
     </body>
 </html>

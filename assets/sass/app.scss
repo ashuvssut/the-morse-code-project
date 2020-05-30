@@ -1,11 +1,11 @@
 // This is the single file output by sass. It is intended to ONLY @import other files.
 
-
-//Mixins
-@import 'mixins';
     
 //variables
 @import 'variables';
+
+//Mixins
+@import 'mixins';
 
 // BASE
 @import 'base/0base-dir';

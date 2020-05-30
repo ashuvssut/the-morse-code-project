@@ -1,0 +1,20 @@
+
+#level-board, #love-msg{
+    text-align: center;
+}
+#level-board{
+    color: $highlight;
+    font-size:20px;
+    line-height: normal;
+    @include flex-center();
+}
+
+.fa-arrow-right, .fa-arrow-left{
+    color: white;
+}
+.visual-button{
+    @include circular-button($yellow-orange, 50px, 50px)  
+}
+.level-button{
+    @include circular-button($light-blue, 50px, 50px)  
+}

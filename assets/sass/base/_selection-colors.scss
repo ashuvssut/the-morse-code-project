@@ -1,11 +1,16 @@
 ::selection{
-  background: #FFF498
+  background: transparent
 }
 
 ::-moz-selection{
-  background: #FFF498
+  background: transparent
 }
 
+body{
+  -webkit-tap-highlight-color: transparent
+}
+
+//Do change the img::selection properties
 img::selection{
   background: transparent
 }
@@ -14,6 +19,3 @@ img::-moz-selection{
   background: transparent
 }
 
-body{
-  -webkit-tap-highlight-color: #FFF498
-}

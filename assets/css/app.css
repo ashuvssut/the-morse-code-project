@@ -1,36 +1,3 @@
-@charset "UTF-8";
-@font-face {
-  font-family: 'Montserrat';
-  src: url("fonts/Montserrat-Black.eot");
-  src: local("☺"), url("fonts/Montserrat-Black.woff") format("woff"), url("fonts/Montserrat-Black.ttf") format("truetype"), url("fonts/Montserrat-Black.svg") format("svg");
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url("fonts/Montserrat-Bold.eot");
-  src: local("☺"), url("fonts/Montserrat-Bold.woff") format("woff"), url("fonts/Montserrat-Bold.ttf") format("truetype"), url("fonts/Montserrat-Bold.svg") format("svg");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url("fonts/Montserrat-Regular.eot");
-  src: local("☺"), url("fonts/Montserrat-Regular.woff") format("woff"), url("fonts/Montserrat-Regular.ttf") format("truetype"), url("fonts/Montserrat-Regular.svg") format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url("fonts/Montserrat-Light.eot");
-  src: local("☺"), url("fonts/Montserrat-Light.woff") format("woff"), url("fonts/Montserrat-Light.ttf") format("truetype"), url("fonts/Montserrat-Light.svg") format("svg");
-  font-weight: 300;
-  font-style: normal;
-}
-
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -38,8 +5,10 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 article,
@@ -250,7 +219,15 @@ th {
 }
 
 ::selection {
-  background: #FFF498;
+  background: transparent;
+}
+
+::-moz-selection {
+  background: transparent;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
 }
 
 img::selection {
@@ -262,16 +239,170 @@ img::-moz-selection {
 }
 
 body {
-  -webkit-tap-highlight-color: #FFF498;
-}
-
-body {
-  background-color: #006eff;
+  background-color: #6807f9;
   font-size: 14px;
   line-height: 1.6;
-  font-family: "Montserrat", sans-serif;
-  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+pre {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 30vh;
+  text-transform: uppercase;
+}
+
+section#navbar {
+  background-color: #9852f9;
+  height: 16vh;
+  min-height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section#level-board {
+  background-color: aqua;
+  height: 60px;
+}
+
+section#keyboard {
+  background-color: #9852f9;
+}
+
+section#love-msg {
+  height: 30px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar .logo-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0px;
+}
+
+.navbar .logo-box {
+  height: 60px;
+  width: 60px;
+  background-color: #004445;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar .logo {
+  width: 60px;
+}
+
+.navbar .main-menu {
+  display: flex;
+}
+
+.navbar li {
+  padding: 4vh 20px;
+  border-radius: 3%;
+}
+
+.navbar li:hover {
+  background-color: #004445;
+  transition: background-color 0.5s ease;
+}
+
+.navbar li::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 0;
+}
+
+.navbar li:hover::after {
+  width: 100%;
+  background-color: #e6e3e3;
+  transition: width .5s;
+}
+
+.navbar a {
+  color: #e6e3e3;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.keyboard-div {
+  height: 38vh;
+}
+
+.visual-div {
+  height: 27vh;
+}
+
+.visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visual .visual-box {
+  height: 27vh;
+  width: 27vh;
+  background-color: #c299fc;
+  border-radius: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#level-board, #love-msg {
+  text-align: center;
+}
+
+#level-board {
+  color: #6807f9;
+  font-size: 20px;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-arrow-right, .fa-arrow-left {
+  color: white;
+}
+
+.visual-button {
+  background-color: #ffd800;
+  margin: 0px 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.level-button {
+  background-color: #9852f9;
+  margin: 0px 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
 }
 /*# sourceMappingURL=app.css.map */
