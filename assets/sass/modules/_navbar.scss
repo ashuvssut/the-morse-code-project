@@ -2,6 +2,8 @@
     @include flex-center();
     flex-direction: row;  
     justify-content: space-between;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+    padding:0 30px;
     .logo-div{
         @include flex-center();
         line-height: 0px;

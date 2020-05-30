@@ -286,6 +286,8 @@ section#love-msg {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 0 30px;
 }
 
 .navbar .logo-div {
@@ -404,5 +406,10 @@ section#love-msg {
   width: 50px;
   height: 50px;
   border-radius: 100%;
+}
+
+.keyboard {
+  height: 38vh;
+  width: 100%;
 }
 /*# sourceMappingURL=app.css.map */
