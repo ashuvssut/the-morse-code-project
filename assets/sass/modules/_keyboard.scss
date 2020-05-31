@@ -1,4 +1,28 @@
+.keyboard-div{
+   
+}
+
 .keyboard{
-    height:$keyboard-height;
-    width: 100%;
+    height:fit-content;
+    border-radius: 1%;
+    background: $darker-grey;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    text-align: center;
+    padding: 3px;
+}
+    
+.keyboard__key{
+    flex: 1;
+    height: 45px;
+    width: 7.5%;
+    max-width: 90px;
+    margin:3px;
+    border-radius:4px;
+    border: none;
+    background: $light-grey-transparent;
+    color: $white;
+    font-size: 1.05rem;
+    outline: none;//to remove the outline when you touch the key in mobile
+    cursor: pointer;
 }

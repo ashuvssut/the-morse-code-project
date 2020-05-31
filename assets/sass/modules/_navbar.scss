@@ -11,7 +11,7 @@
     .logo-box{
         height: 60px;
         width: 60px;
-        background-color: $dark-grey;
+        background-color: $medium-grey;
         border-radius: 50%;
         margin-right: 10px;
         @include flex-center();
@@ -29,7 +29,7 @@
         border-radius: 3%;
     }
     li:hover{
-        background-color: $dark-grey;
+        background-color: $medium-grey;
         transition: background-color 0.5s ease;
     }
     li::after{

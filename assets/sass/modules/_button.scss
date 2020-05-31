@@ -1,0 +1,9 @@
+.fa-arrow-right, .fa-arrow-left{
+    color: white;
+}
+.visual-button{
+    @include circular-button($yellow-orange, 15px, 50px)  
+}
+.level-button{
+    @include circular-button($light-blue, 20px, 50px)  
+}

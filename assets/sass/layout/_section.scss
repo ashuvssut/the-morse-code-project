@@ -9,6 +9,13 @@ section{
         background-color: aqua;
         height: 60px;
     }
+    &#visual{
+        height: $visual-height;
+    }
+    &#keyboard{
+        height: $keyboard-height;
+        
+    }
     &#keyboard{
         background-color: $light-blue;
     }
