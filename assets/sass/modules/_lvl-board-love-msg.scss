@@ -8,3 +8,17 @@
     line-height: normal;
     @include flex-center();
 }
+#love-msg{
+    & > h3{
+        position: relative;
+        z-index: -100;
+    }
+}
+
+@media screen and(max-height:549px){
+    #love-msg{
+        & > h3{
+            visibility: hidden;
+        }
+    }
+}

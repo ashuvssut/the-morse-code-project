@@ -34,32 +34,65 @@ const Keyboard = {//Keyboard Object to hold all elements related to it to make t
 
     _createKeys(){//(private function) creates all keys which will be appended to keysContainer
         const fragment = document.createDocumentFragment();//document fragment are virtual elements that can be used to append to other elements.reference--<https://www.youtube.com/watch?v=aUzCq-uabhw>
+        
+        //CREATE KEYS WITH THEIR innerHTML AND PROGRESS-BAR
         const keyLayout =[//array to store layout(no line breaks included) and then create button elements by looping
             "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
             "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", 
-            "A", "S", "D", "F", "G", "H", "J", "K", "L", "=",
-            "Z", "X", "C", "V", "B", "N", "M", ",", ".", "?", 
+            "A", "S", "D", "F", "G", "H", "J", "K", "L", "eq",
+            "Z", "X", "C", "V", "B", "N", "M", "com", "dot", "q", 
+        ]
+
+        const morseValues=[//array to store codes(no line breaks included) and then create button elements by looping
+            ". - - - -", ". . - - - ", ". . . - - ", ". . . . - ", ". . . . . ", "- . . . . ", "- - . . . ", "- - - . . ", "- - - - . ", "- - - - - ",
+            "- - . - ", ". - - ", ". ", ". - . ", "- ", "- . - - ", ". . - ", ". . ", "- - - ", ". - - . ", 
+            ". - ", ". . . ", "- . . ", ". . - . ", "- - . ", ". . . . ", ". - - - ", "- . - ", ". - . . ", "- . . . - ",
+            "- - . . ", "- . . - ", "- . - . ", ". . . - ", "- . . . ", "- . ", "- - ", "- - . . - - ", ". - . - . - ", ". . - - . . ", 
         ]
 
         //generating those keyboard layout HTML elements (including line breaks). These keys will be appended to "fragment"
-        keyLayout.forEach((key) => {//for each key generate the element below
+        keyLayout.forEach((key, index) => {//for each key generate the element below
             const keyElement = document.createElement("button");
             keyElement.classList.add("keyboard__key")
             keyElement.setAttribute("type", "button");
-            keyElement.innerHTML = key;
-            //The key is set. Now add the progress bar
-            const breakElement= document.createElement("br");
-            keyElement.appendChild(breakElement);
+            //insert values in all keys
+            let forbiddenElement = ["eq", "com", "dot", "q"].indexOf(key);//returns -1 if any of these elements is not found in this array (this array only contains forbidden-elements)
+            if(forbiddenElement !== -1){
+                switch(key){
+                    case "eq": keyElement.innerHTML = "="; break;
+                    case "com": keyElement.innerHTML = ","; break;
+                    case "dot": keyElement.innerHTML = "."; break;
+                    case "q": keyElement.innerHTML = "?"; break;
+                }
+            } else{
+                keyElement.innerHTML = key;
+            }
+
+            //>>> KEY SUB_DIV
+            //The keys are set. Now add the answer div after adding a line-break
+            const breakElement1= document.createElement("br");
+            keyElement.appendChild(breakElement1);
+
+            //GET THOSE KEYS THEIR MORSE-VALUE
+            const answerDiv = document.createElement("div");
+            answerDiv.classList.add("answer");
+            keyElement.appendChild(answerDiv);
+            answerDiv.innerHTML = morseValues[index];//assigning those key to its respective morse-code
+            
+            //>>> KEY SUB_DIV
+            //The answer-div is set. Now add the progress bar
+            const breakElement2= document.createElement("br");
+            keyElement.appendChild(breakElement2);
             
             //Add progress bar with default CSS class
             const progressBar = document.createElement("div");
             progressBar.classList.add("progress-bar");
             keyElement.appendChild(progressBar);
 
-            //make progress-bar custom CSS width class
+            //Add progress-bar custom CSS width class
             progressBar.classList.add(`width-${key}`);
-
-            let foundEndElement = ["0", "P", "=", "?"].indexOf(key);//returns -1 if any of these elements is not found in this array (this array only contains end-elements)
+        
+            let foundEndElement = ["0", "P", "eq", "q"].indexOf(key);//returns -1 if any of these elements is not found in this array (this array only contains end-elements)
             let insertLineBreak = (foundEndElement !== -1); //insertLineBreak stores boolean value
             
             //Add eventListener to key
@@ -74,8 +107,8 @@ const Keyboard = {//Keyboard Object to hold all elements related to it to make t
                 fragment.appendChild(document.createElement("br"))
                 
             }
-        });
-
+        });        
+    
         //Now, all keys are appended to fragment. Time to return fragment.
         return fragment
     },
@@ -91,16 +124,11 @@ const Keyboard = {//Keyboard Object to hold all elements related to it to make t
 
 
 
-
-
-
-
-
-
-
-
-
 window.addEventListener("DOMContentLoaded", function(){//only fire-up the below code when the DOM is loaded
     Keyboard.init();
 });
 
+// ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.", "-----",
+// "--.-", ".--", ".", ".-.", "-", "-.--", "..-", "..", "---", ".--.", 
+// ".-", "...", "-..", "..-.", "--.", "....", ".---", "-.-", ".-..", "-...-",
+// "--..", "-..-", "-.-.", "...-", "-...", "-.", "--", "--..--", ".-.-.-", "..--..", 

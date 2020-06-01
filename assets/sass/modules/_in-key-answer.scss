@@ -1,0 +1,12 @@
+.answer{
+    color: $lighter-blue;
+    font-size: 10px; 
+    visibility: visible;
+}
+
+@media screen and (min-width:595px){
+    .answer{
+        font-family: 'Asset', cursive;
+        font-size: 8px;    
+    }
+}
