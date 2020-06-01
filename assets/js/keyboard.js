@@ -11,14 +11,14 @@ const Keyboard = {//Keyboard Object to hold all elements related to it to make t
         onInput:null,
     },
 
-    properties:{//represent current state of the keyboard
-        health: "",
-    },
+    // properties:{//represent current state of the keyboard
+    //     health: "",
+    // },
 
     //FUNCTIONS
     init(){//this runs to initialize the keyboard 
         //Create Keyboard Elements
-        this.elements.main = document.createElement("div");//this keyword refers to parent object(Keyboard)
+        this.elements.main = document.createElement("div");//'this' keyword refers to parent object(Keyboard)
         this.elements.keysContainer = document.createElement("div");
         this.elements.keysContainer.appendChild(this._createKeys());
 
@@ -47,8 +47,19 @@ const Keyboard = {//Keyboard Object to hold all elements related to it to make t
             keyElement.classList.add("keyboard__key")
             keyElement.setAttribute("type", "button");
             keyElement.innerHTML = key;
+            //The key is set. Now add the progress bar
+            const breakElement= document.createElement("br");
+            keyElement.appendChild(breakElement);
+            
+            //Add progress bar with default CSS class
+            const progressBar = document.createElement("div");
+            progressBar.classList.add("progress-bar");
+            keyElement.appendChild(progressBar);
 
-            let foundEndElement = ["0", "P", "=", "?"].indexOf(key);//returns -1 if any of these elements is not found in this array (that contains end-elements)
+            //make progress-bar custom CSS width class
+            progressBar.classList.add(`width-${key}`);
+
+            let foundEndElement = ["0", "P", "=", "?"].indexOf(key);//returns -1 if any of these elements is not found in this array (this array only contains end-elements)
             let insertLineBreak = (foundEndElement !== -1); //insertLineBreak stores boolean value
             
             //Add eventListener to key
