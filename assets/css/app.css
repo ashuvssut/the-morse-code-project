@@ -526,6 +526,15 @@ section#love-msg {
   outline: none;
 }
 
+.fa-window-close-button {
+  position: absolute;
+  right: 30px;
+  width: 33px;
+  height: 33px;
+  background-color: #ff00d4;
+  border-style: none;
+}
+
 .progress-bar {
   max-width: 100%;
   height: 4px;
@@ -703,5 +712,37 @@ section#love-msg {
     font-family: 'Asset', cursive;
     font-size: 8px;
   }
+}
+
+.greetings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.greeting-box {
+  padding: 30px;
+  position: absolute;
+  top: 30%;
+  z-index: 100;
+  height: 300px;
+  width: 70%;
+  background-color: #ff00d4;
+  border-radius: 5px;
+  box-shadow: 1px 10px 100px #ff00d4;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.greeting-box p {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 40px;
+  font-weight: 900;
+  color: #6807f9;
+}
+
+.close {
+  transform: translate3d(500px, 500px, 0);
 }
 /*# sourceMappingURL=app.css.map */
