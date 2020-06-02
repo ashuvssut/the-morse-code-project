@@ -22,6 +22,7 @@
         
         <!--js scripts-->
         <script src="assets/js/keyboard.js"></script>
+        <script src="assets/js/sidebar.js"></script>
         
     </head>
     <body>
@@ -33,14 +34,15 @@
                     </div>
                     <h1 class="title">Learn Morse</h1>
                 </div>
-                <ul class="main-menu">
-                    <strong class="main-menu">
-                        <li><a href="#">Note</a></li>
-                        <li><a href="#">How-To</a></li>
-                        <li><a href="#">About Me</a></li>
-                        <li><a href="#">Contribute</a></li>
-                    </strong>
-                </ul>
+                <ul class="main-menu" id="main-menu">
+                    <li><a href="#">Note</a></li><hr>
+                    <li><a href="#">How-To</a></li><hr>
+                    <li><a href="#">About Me</a></li><hr>
+                    <li><a href="#">Contribute</a></li>
+                </ul> 
+                <button class="hamburger" onclick="toggleSidebar()" type="button" >
+                    <i class="fas fa-bars fa-2x" aria-hidden="true"></i>
+                </button>
             </nav>
         </section>
         
@@ -103,5 +105,6 @@
                 from India.
             </h3>
         </section>
+
     </body>
 </html>
