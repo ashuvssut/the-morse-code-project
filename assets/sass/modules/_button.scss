@@ -1,0 +1,32 @@
+.hamburger{
+    background-color: $highlight;
+    padding: 4px 7px;
+    border-radius: 20%;
+    box-shadow: 0px 10px 20px $highlight;
+    border-style: none;
+    color:$white;
+    display: none;
+}
+
+@media(max-width:920px){
+    .hamburger{
+        display: block;
+    }
+}
+.fa-arrow-right, .fa-arrow-left{
+    color: white;
+}
+.visual-button{
+    @include circular-button($yellow-orange, 15px, 50px)  
+}
+.level-button{
+    @include circular-button($light-blue, 20px, 50px)  
+}
+.fa-window-close-button{
+    position: absolute;
+    right: 30px;
+    width: 33px;
+    height: 33px;
+    background-color: $pink;
+    border-style: none;
+}

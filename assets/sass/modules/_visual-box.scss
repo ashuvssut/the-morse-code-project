@@ -1,0 +1,11 @@
+.visual{
+    @include flex-center();
+    .visual-box{
+        height: $visual-height;
+        width: $visual-height;
+        background-color: $lighter-blue;
+        border-radius: 3%;
+        @include flex-center();
+    }
+    //see base.scss for <pre> that appends text in .visual-box 
+}
