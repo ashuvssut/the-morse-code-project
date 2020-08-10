@@ -15,12 +15,15 @@
 }
 .fa-arrow-right, .fa-arrow-left{
     color: white;
+    border-style: none;
 }
 .visual-button{
-    @include circular-button($yellow-orange, 15px, 50px)  
+    @include circular-button($yellow-orange, 15px, 50px)
+    border-style: none;  
 }
 .level-button{
     @include circular-button($light-blue, 20px, 50px)  
+    border-style: none;
 }
 .fa-window-close-button{
     position: absolute;

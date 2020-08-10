@@ -299,10 +299,9 @@ section#love-msg {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #c299fc;
+    background-color: rgba(194, 153, 252, 0.5);
     height: 100vh;
     width: 50%;
-    opacity: 0.9;
     transform: translateX(-500px);
     transition: transform 0.5s ease-in-out;
   }
@@ -506,6 +505,7 @@ section#love-msg {
 
 .fa-arrow-right, .fa-arrow-left {
   color: white;
+  border-style: none;
 }
 
 .visual-button {
@@ -515,6 +515,7 @@ section#love-msg {
   height: 50px;
   border-radius: 100%;
   outline: none;
+  border-style: none;
 }
 
 .level-button {
@@ -524,6 +525,7 @@ section#love-msg {
   height: 50px;
   border-radius: 100%;
   outline: none;
+  border-style: none;
 }
 
 .fa-window-close-button {

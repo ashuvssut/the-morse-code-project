@@ -1,6 +1,4 @@
 {
-    "liveServer.settings.port": 5501,
-    "cSpell.ignoreWords": [
-        "ritwickey"
-    ]
+    "liveServer.settings.port": 3000,
+    "liveServer.settings.host": "localhost"
 }

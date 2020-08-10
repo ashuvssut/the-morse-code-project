@@ -7,10 +7,9 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-color: $lighter-blue;
+        background-color: rgba($color: $lighter-blue, $alpha: 0.5);
         height: 100vh;
         width: 50%;
-        opacity:0.9;
         transform: translateX(-500px);
         transition: transform 0.5s ease-in-out;
         a{
