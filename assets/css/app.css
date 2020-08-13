@@ -273,7 +273,7 @@ section#navbar {
 }
 
 section#level-board {
-  background-color: aqua;
+  background-color: white;
   height: 60px;
 }
 
@@ -299,7 +299,7 @@ section#love-msg {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(194, 153, 252, 0.5);
+    background-color: rgba(194, 153, 252, 0.2);
     height: 100vh;
     width: 50%;
     transform: translateX(-500px);
@@ -421,7 +421,7 @@ section#love-msg {
 .visual .visual-box {
   height: 27vh;
   width: 27vh;
-  background-color: #c299fc;
+  background-color: #c299fc61;
   border-radius: 3%;
   display: flex;
   justify-content: center;

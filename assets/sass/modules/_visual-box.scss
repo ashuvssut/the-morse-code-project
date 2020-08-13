@@ -3,7 +3,7 @@
     .visual-box{
         height: $visual-height;
         width: $visual-height;
-        background-color: $lighter-blue;
+        background-color: #c299fc61;
         border-radius: 3%;
         @include flex-center();
     }
