@@ -1,22 +1,44 @@
 section{
-    &#navbar{
-        background-color: $light-blue;
-        height: $navbar-height;
-        min-height: 70px;
-        @include flex-center();
-    }
+    //navbar styles are in _navbar.scss
     &#level-board{
         background-color: white;
         height: 60px;
+        text-align: center;
+        color: $highlight;
+        font-size:20px;
+        line-height: normal;
+        @include flex-center();
     }
     &#visual{
         height: $visual-height;
+        margin: 10px 0;
+        .visual{
+            @include flex-center();
+            height:$visual-height;
+            .visual-box{
+                height: $visual-height;
+                width: $visual-height;
+                background-color: #c299fc61;
+                border-radius: 3%;
+                @include flex-center();
+            }
+            //see base.scss for <pre> that appends text in .visual-box 
+        }
     }
-    &#keyboard{
-        height: $keyboard-height;
-        background-color: $light-blue;
-    }
-    &#love-msg{
+
+    //keyboard styles are in _keyboard.scss
+
+    &#love-msg{ 
         height: 30px;
+        text-align: center;
+        & > h3{
+            position: relative;
+            z-index: -100;
+            @media (max-height:549px){
+                visibility: hidden;
+            }
+        }
     }
+
+    //greetings-box is in _modal.scss
 }

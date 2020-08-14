@@ -263,31 +263,54 @@ br {
   height: 3px;
 }
 
-section#navbar {
-  background-color: #9852f9;
-  height: 16vh;
-  min-height: 70px;
+section#level-board {
+  background-color: white;
+  height: 60px;
+  text-align: center;
+  color: #6807f9;
+  font-size: 20px;
+  line-height: normal;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-section#level-board {
-  background-color: white;
-  height: 60px;
+section#visual {
+  height: 27vh;
+  margin: 10px 0;
 }
 
-section#visual {
+section#visual .visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 27vh;
 }
 
-section#keyboard {
-  height: 36vh;
-  background-color: #9852f9;
+section#visual .visual .visual-box {
+  height: 27vh;
+  width: 27vh;
+  background-color: #c299fc61;
+  border-radius: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 section#love-msg {
   height: 30px;
+  text-align: center;
+}
+
+section#love-msg > h3 {
+  position: relative;
+  z-index: -100;
+}
+
+@media (max-height: 549px) {
+  section#love-msg > h3 {
+    visibility: hidden;
+  }
 }
 
 @media (max-width: 920px) {
@@ -299,7 +322,8 @@ section#love-msg {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(194, 153, 252, 0.2);
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.6);
+    background-color: rgba(104, 7, 249, 0.9);
     height: 100vh;
     width: 50%;
     transform: translateX(-500px);
@@ -310,13 +334,21 @@ section#love-msg {
     border-bottom-style: solid;
     border-bottom: medium;
   }
+  .show {
+    transform: translateX(-20px);
+  }
 }
 
-.show {
-  transform: translateX(-20px);
+#navbar {
+  background-color: #9852f9;
+  height: 16vh;
+  min-height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navbar {
+#navbar .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -326,14 +358,14 @@ section#love-msg {
   padding: 0 30px;
 }
 
-.navbar .logo-div {
+#navbar .navbar .logo-div {
   display: flex;
   justify-content: center;
   align-items: center;
   line-height: 0px;
 }
 
-.navbar .logo-box {
+#navbar .navbar .logo-box {
   height: 60px;
   width: 60px;
   background-color: #005040;
@@ -344,44 +376,44 @@ section#love-msg {
   align-items: center;
 }
 
-.navbar .logo {
+#navbar .navbar .logo {
   width: 60px;
 }
 
-.navbar .main-menu {
+#navbar .navbar .main-menu {
   display: flex;
 }
 
-.navbar li {
+#navbar .navbar li {
   padding: 4vh 20px;
   border-radius: 4%;
 }
 
-.navbar li:hover {
+#navbar .navbar li:hover {
   background-color: #005040;
   transition: background-color 0.5s ease;
 }
 
-.navbar li::after {
-  content: '';
+#navbar .navbar li::after {
+  content: "";
   display: block;
   height: 3px;
   width: 0;
 }
 
-.navbar li:hover::after {
+#navbar .navbar li:hover::after {
   width: 100%;
   background-color: #f3f3f3;
-  transition: width .5s;
+  transition: width 0.5s;
 }
 
-.navbar a {
+#navbar .navbar a {
   color: #f3f3f3;
   text-decoration: none;
   font-size: 20px;
 }
 
-.navbar hr {
+#navbar .navbar hr {
   display: none;
   color: #f3f3f3;
   width: 90%;
@@ -389,10 +421,10 @@ section#love-msg {
 }
 
 @media (max-width: 920px) {
-  .navbar hr {
+  #navbar .navbar hr {
     display: block;
   }
-  .navbar li {
+  #navbar .navbar li {
     width: 91.6%;
     padding: 20px;
   }
@@ -404,59 +436,17 @@ section#love-msg {
   margin: auto;
 }
 
-.keyboard-div {
+#keyboard {
   height: 36vh;
+  background-color: #9852f9;
 }
 
-.visual-div {
-  height: 27vh;
-}
-
-.visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.visual .visual-box {
-  height: 27vh;
-  width: 27vh;
-  background-color: #c299fc61;
-  border-radius: 3%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#level-board, #love-msg {
+#keyboard .keyboard-div {
+  height: 100%;
   text-align: center;
 }
 
-#level-board {
-  color: #6807f9;
-  font-size: 20px;
-  line-height: normal;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#love-msg > h3 {
-  position: relative;
-  z-index: -100;
-}
-
-@media screen and (max-height: 549px) {
-  #love-msg > h3 {
-    visibility: hidden;
-  }
-}
-
-.keyboard-div {
-  text-align: center;
-}
-
-.keyboard {
+#keyboard .keyboard-div .keyboard {
   height: fit-content;
   border-radius: 1%;
   background: #004445;
@@ -466,7 +456,7 @@ section#love-msg {
   padding: 1px;
 }
 
-.keyboard__key {
+#keyboard .keyboard-div .keyboard .keyboard__key {
   height: fit-content;
   width: 9.2%;
   max-width: 90px;
@@ -474,16 +464,29 @@ section#love-msg {
   margin-bottom: 2px;
   border-radius: 4px;
   border: none;
-  background: rgba(225, 225, 225, 0.2);
+  background: rgba(225, 225, 225, 0.1);
   color: #b6b6b6;
   font-size: 1.05rem;
   outline: none;
   cursor: pointer;
 }
 
-@media screen and (max-width: 318px) {
-  .keyboard__key {
+@media (max-width: 318px) {
+  #keyboard .keyboard-div .keyboard .keyboard__key {
     min-width: 28.5px;
+  }
+}
+
+#keyboard .keyboard-div .keyboard .keyboard__key .answer {
+  color: #c299fc;
+  font-size: 10px;
+  visibility: visible;
+}
+
+@media (min-width: 595px) {
+  #keyboard .keyboard-div .keyboard .keyboard__key .answer {
+    font-family: 'Asset', cursive;
+    font-size: 8px;
   }
 }
 
@@ -491,7 +494,6 @@ section#love-msg {
   background-color: #6807f9;
   padding: 4px 7px;
   border-radius: 20%;
-  box-shadow: 0px 10px 20px #6807f9;
   border-style: none;
   color: #f3f3f3;
   display: none;
@@ -703,26 +705,13 @@ section#love-msg {
   width: 100%;
 }
 
-.answer {
-  color: #c299fc;
-  font-size: 10px;
-  visibility: visible;
-}
-
-@media screen and (min-width: 595px) {
-  .answer {
-    font-family: 'Asset', cursive;
-    font-size: 8px;
-  }
-}
-
 .greetings {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.greeting-box {
+.greetings .greeting-box {
   padding: 30px;
   position: absolute;
   top: 30%;
@@ -736,7 +725,7 @@ section#love-msg {
   transition: transform 0.3s ease-in-out;
 }
 
-.greeting-box p {
+.greetings .greeting-box p {
   text-align: center;
   margin-top: 40px;
   font-size: 40px;
@@ -744,7 +733,7 @@ section#love-msg {
   color: #6807f9;
 }
 
-.close {
+.greetings .close {
   transform: translate3d(-600px, -600px, 0);
 }
 /*# sourceMappingURL=app.css.map */

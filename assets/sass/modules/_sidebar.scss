@@ -7,7 +7,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba($color: $lighter-blue, $alpha: 0.2);
+        box-shadow: 3px 0 5px rgba(0,0,0,0.6);
+        background-color: rgba($color: $highlight, $alpha: 0.9);
         height: 100vh;
         width: 50%;
         transform: translateX(-500px);
@@ -18,7 +19,8 @@
             border-bottom: medium;
         }
     }
+    .show{
+        transform: translateX(-20px); 
+    }
 }
-.show{
-    transform: translateX(-20px); 
-}
+

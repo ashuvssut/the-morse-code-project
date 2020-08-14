@@ -55,9 +55,10 @@ const Keyboard = {//Keyboard Object to hold all elements related to it to make t
             const keyElement = document.createElement("button");
             keyElement.classList.add("keyboard__key")
             keyElement.setAttribute("type", "button");
-            //insert values in all keys
-            let forbiddenElement = ["eq", "com", "dot", "q"].indexOf(key);//returns -1 if any of these elements is not found in this array (this array only contains forbidden-elements)
-            if(forbiddenElement !== -1){
+            //insert values in all keys / set value to keyElements' innerHTML 
+            let forbiddenElement = ["eq", "com", "dot", "q"].indexOf(key);//returns -1 if any of these elements is not found in this array>>>["eq", "com", "dot", "q"] (this array only contains forbidden-elements)
+            //forbiddenElement variable stores only indexes or -1 value.
+            if(forbiddenElement !== -1){// if forbidden element found then execute this if statement
                 switch(key){
                     case "eq": keyElement.innerHTML = "="; break;
                     case "com": keyElement.innerHTML = ","; break;
@@ -118,11 +119,6 @@ const Keyboard = {//Keyboard Object to hold all elements related to it to make t
     },
 
 };
-
-
-
-
-
 
 window.addEventListener("DOMContentLoaded", function(){//only fire-up the below code when the DOM is loaded
     Keyboard.init();

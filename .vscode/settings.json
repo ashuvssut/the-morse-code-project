@@ -2,4 +2,6 @@
     "liveServer.settings.port": 1337,
     "liveServer.settings.host": "localhost",
     "liveServer.settings.NoBrowser": true,
+
+    "liveSassCompile.settings.showOutputWindow": false,
 }
