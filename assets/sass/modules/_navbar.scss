@@ -27,6 +27,7 @@
     
         .main-menu {
             display: flex;
+            z-index: 100;
         }
         li {
             padding: $navbar-height/4 20px;

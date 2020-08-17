@@ -17,7 +17,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Asset&display=swap" rel="stylesheet"> 
 
         <!--font-awesome -->
-        <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
         
         <!--js scripts-->
         <script src="assets/js/keyboard.js"></script>
@@ -70,39 +71,42 @@
             </button>
         </section>
 
-        <div class="settings">
-            <input type="checkbox" name="settings" autocomplete='off'>
-            <div class="audio-controls">
-                <form class="audio-form" >
-                    <!-- <input value=".-.--" id="input" type="text" name="morse-code" autocomplete="off"> -->
-                    <label for="noise-control">Noise Control:</label>
-                    <input id="noise-control" type="range" min="0.1" max="0.9" step="0.1" value="0.4" oninput="restartNoise(this)">
-                    <button id="noise-switch" data-state="off" type="button" onclick="switchNoise(this)">handle noise</button>
-                </form>
-                <form class="audio-form">
-                    <label for="WPM-control">WPM Control:</label>
-                    <input id="WPM-control" type="range" min="1.5" max="4.5" step="0.5" value="3">
-                    <!-- <button type="button" class="play" onclick="handlePlayPress(this)">
-                        C
-                        <br>
-                        <div class="answer">-.-.</div>
-                        <br>
-                        <div class="progress-bar">.</div>
-                    </button>-->
-                </form>
-            </div>
-        </div>
-
         <section id="visual">
+            <div class="settings">
+                <input type="checkbox" class="settings-icon" title="Audio Settings" name="settings-icon" autocomplete='off'>
+                <div class="audio-controls">
+                    <form class="audio-form" >
+                        <!-- <input value=".-.--" id="input" type="text" name="morse-code" autocomplete="off"> -->
+                        <label for="noise-control">Noise Control:</label>
+                        <input id="noise-control" type="range" min="0.1" max="0.9" step="0.1" value="0.4" oninput="restartNoise(this)" autocomplete="off">
+                        <button id="noise-switch" data-state="off" type="button" onclick="switchNoise(this)">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-waveform fa-w-20 fa-3x"><g class="fa-group"><path fill="currentColor" d="M140 192h-24a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16v-96a16 16 0 0 0-16-16zM524 64h-24a16 16 0 0 0-16 16v352a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zM332 0h-24a16 16 0 0 0-16 16v480a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16V16a16 16 0 0 0-16-16z" class="fa-secondary"></path><path fill="currentColor" d="M44 224H20a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM236 96h-24a16 16 0 0 0-16 16v288a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16V112a16 16 0 0 0-16-16zm384 128h-24a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm-192-96h-24a16 16 0 0 0-16 16v224a16 16 0 0 0 16 16h24a16 16 0 0 0 16-16V144a16 16 0 0 0-16-16z"></path></g></svg>
+                        </button>
+                    </form>
+                    <form class="audio-form">
+                        <label for="WPM-control">WPM Control:</label>
+                        <input id="WPM-control" type="range" min="1.5" max="4.5" step="0.5" value="3">
+                        <!-- <button type="button" class="play" onclick="handlePlayPress(this)">
+                            C
+                            <br>
+                            <div class="answer">-.-.</div>
+                            <br>
+                            <div class="progress-bar">.</div>
+                        </button>-->
+                    </form>
+                </div>
+            </div>
             <div class="visual visual-div">
-                <button id="question-mark" class="visual-button" type="button">
+                <button id="question-mark" title="help" class="visual-button" type="button">
                     <i class="fa fa-question fa-2x" aria-hidden="true"></i>
                 </button>
                 <div class="visual-box">
                     <pre>?</pre>
                 </div>
-                <button id="play" class="visual-button" type="button">
+                <button id="play" class="play visual-button" title="play the code one more time!" type="button" onclick="handlePlayPress(this)">
                     <i class="fas fa-play fa-lg" aria-hidden="true"></i>
+                    <br style="display:none">
+                    <div class="answer" style="display:none">..--..</div>
                 </button>
             </div>
         </section>
