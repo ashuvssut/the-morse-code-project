@@ -22,7 +22,9 @@
         <!--js scripts-->
         <script src="assets/js/keyboard.js"></script>
         <script src="assets/js/sidebar.js"></script>
-        <script src="assets/js/greeting-box.js"></script>
+        <script src="assets/js/modal.js"></script>
+        <script defer src="assets/js/morseSound.js"></script>
+        <script defer src="assets/js/noise.js"></script>
         
     </head>
     <body>
@@ -35,7 +37,6 @@
                     <h1 class="title">Learn Morse</h1>
                 </div>
                 <ul class="main-menu" id="main-menu">
-                    <li><a href="#">Note</a></li><hr>
                     <li><a href="#">How-To</a></li><hr>
                     <li><a href="#">About Me</a></li><hr>
                     <li><a href="#">Contribute</a></li>
@@ -69,20 +70,44 @@
             </button>
         </section>
 
+        <div class="settings">
+            <input type="checkbox" name="settings" autocomplete='off'>
+            <div class="audio-controls">
+                <form class="audio-form" >
+                    <!-- <input value=".-.--" id="input" type="text" name="morse-code" autocomplete="off"> -->
+                    <label for="noise-control">Noise Control:</label>
+                    <input id="noise-control" type="range" min="0.1" max="0.9" step="0.1" value="0.4" oninput="restartNoise(this)">
+                    <button id="noise-switch" data-state="off" type="button" onclick="switchNoise(this)">handle noise</button>
+                </form>
+                <form class="audio-form">
+                    <label for="WPM-control">WPM Control:</label>
+                    <input id="WPM-control" type="range" min="1.5" max="4.5" step="0.5" value="3">
+                    <!-- <button type="button" class="play" onclick="handlePlayPress(this)">
+                        C
+                        <br>
+                        <div class="answer">-.-.</div>
+                        <br>
+                        <div class="progress-bar">.</div>
+                    </button>-->
+                </form>
+            </div>
+        </div>
+
         <section id="visual">
             <div class="visual visual-div">
                 <button id="question-mark" class="visual-button" type="button">
                     <i class="fa fa-question fa-2x" aria-hidden="true"></i>
                 </button>
                 <div class="visual-box">
-                    <pre>E</pre>
+                    <pre>?</pre>
                 </div>
                 <button id="play" class="visual-button" type="button">
                     <i class="fas fa-play fa-lg" aria-hidden="true"></i>
                 </button>
             </div>
         </section>
-
+        
+        
         <section id="keyboard">
             <!-- These lines below will be added by keyboard.js -->
             <!-- <div class="container keyboard-div">
@@ -106,14 +131,18 @@
             </h3>
         </section>
 
-    <div class="greetings" style="display: none;">
-        <div class="greeting-box">
-            <button class="fa-window-close-button" onclick="closeGreeting()" type="button">
-                <i class="fas fa-window-close fa-2x" aria-hidden="true"></i>
-            </button>
-            <p>Level Passed!</p><br>
-            <p>Respect++</p>
+        <div class="greetings" style="display: none;">
+            <div class="greeting-box">
+                <button class="fa-window-close-button" onclick="closeGreeting()" type="button">
+                    <i class="fas fa-window-close fa-2x" aria-hidden="true"></i>
+                </button>
+                <p>Level Passed!</p><br>
+                <p>Respect++</p>
+            </div>
         </div>
-    </div>
     </body>
 </html>
+
+
+
+

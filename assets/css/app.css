@@ -355,7 +355,7 @@ section#love-msg > h3 {
   flex-direction: row;
   justify-content: space-between;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-  padding: 0 30px;
+  padding: 0 10px;
 }
 
 #navbar .navbar .logo-div {
@@ -465,7 +465,7 @@ section#love-msg > h3 {
   border-radius: 4px;
   border: none;
   background: rgba(225, 225, 225, 0.1);
-  color: #b6b6b6;
+  color: white;
   font-size: 1.05rem;
   outline: none;
   cursor: pointer;
@@ -478,7 +478,7 @@ section#love-msg > h3 {
 }
 
 #keyboard .keyboard-div .keyboard .keyboard__key .answer {
-  color: #c299fc;
+  color: white;
   font-size: 10px;
   visibility: visible;
 }
