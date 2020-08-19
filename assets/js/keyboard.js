@@ -55,6 +55,7 @@ const Keyboard = {//Keyboard Object to hold all elements related to it to make t
             const keyElement = document.createElement("button");
             keyElement.classList.add("keyboard__key")
             keyElement.setAttribute("type", "button");
+            keyElement.setAttribute("onclick", "Logic.judge(this);");
             //insert values in all keys / set value to keyElements' innerHTML 
             let forbiddenElement = ["eq", "com", "dot", "q"].indexOf(key);//returns -1 if any of these elements is not found in this array>>>["eq", "com", "dot", "q"] (this array only contains forbidden-elements)
             //forbiddenElement variable stores only indexes or -1 value.
@@ -127,4 +128,4 @@ window.addEventListener("DOMContentLoaded", function(){//only fire-up the below 
 // ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.", "-----",
 // "--.-", ".--", ".", ".-.", "-", "-.--", "..-", "..", "---", ".--.", 
 // ".-", "...", "-..", "..-.", "--.", "....", ".---", "-.-", ".-..", "-...-",
-// "--..", "-..-", "-.-.", "...-", "-...", "-.", "--", "--..--", ".-.-.-", "..--..", 
+// "--..", "-..-", "-.-.", "...-", "-...", "-.", "--", "--..--", ".-.-.-", "..--..", zz

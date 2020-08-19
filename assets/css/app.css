@@ -252,12 +252,6 @@ li {
   list-style: none;
 }
 
-pre {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 30vh;
-  text-transform: uppercase;
-}
-
 br {
   display: block;
   height: 3px;
@@ -400,6 +394,12 @@ section#visual .visual .visual-box {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+section#visual .visual .visual-box pre {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 section#love-msg {

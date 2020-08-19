@@ -115,8 +115,13 @@ section{
                 background-color: #c299fc61;
                 border-radius: 3%;
                 @include flex-center();
+                pre{
+                    font-family: 'Ubuntu', sans-serif;
+                    font-size: 20px;
+                    text-transform: uppercase;
+                }
             }
-            //see base.scss for <pre> that appends text in .visual-box 
+            
         }
     }
 
