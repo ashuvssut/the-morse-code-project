@@ -1,7 +1,7 @@
 const play = document.querySelector('#play');
 const WPMControl = document.querySelector('#WPM-control');
 let code = '';
-let index = 1;
+let index = 2;
 
 const ctx = new (window.AudioContext || window.webkitAudioContext)(); // refer https://youtu.be/WD-T_yKw8iA
 
@@ -36,10 +36,10 @@ function playback(audioBuffer) { //pass the audioBuffer that you want to play
             else if(code[index] === '-'){
                 playback(dashAudio);
             }
-            index++;
+            index = index + 2;
         }
         else {
-            index = 1;
+            index = 2;
         }
     };
 }
@@ -48,7 +48,7 @@ function playback(audioBuffer) { //pass the audioBuffer that you want to play
 function handlePlayPress(obj){
     code = obj.querySelector('.answer').textContent;
     
-    if(index !== 1){// This code block is written to prevent two or more than 2 'full code's from being played simultaneously, i.e, by this code block, no two codes can play simultaneously...previous code has to stop before the next code starts playing
+    if(index !== 2){// This code block is written to prevent two or more than 2 'full code's from being played simultaneously, i.e, by this code block, no two codes can play simultaneously...previous code has to stop before the next code starts playing
         playSound.stop();//stop the current sound playback
         index = code.length + 1;//stop the current 'full code' sound playback
     }
