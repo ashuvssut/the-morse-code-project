@@ -10,6 +10,9 @@
 //    ⬇              ⬆
 //  judge()  ➡➡➡➡➡
 
+let playButtonAnswer= document.querySelector('#play .answer');
+let levelNumber= document.querySelector('#level-number');
+let visualBoxText= document.querySelector('.visual-box pre');
 const Logic = {
     morseCodes: {
         "_E": ".",
@@ -54,9 +57,6 @@ const Logic = {
         "_=": "-...-",
     },
     elements : {
-        playButtonAnswer : null,
-        levelNumber : null,
-        visualBoxText : null,
         morseCodeRawKeysArray: null,
         morseCodeKeysArray: null,
         morseCodeValuesArray: null,
@@ -77,35 +77,33 @@ const Logic = {
     },
 
     asker(){
-        this.elements.playButtonAnswer = document.querySelector('#play .answer').textContent;
-        this.elements.visualBoxText = document.querySelector('.visual-box pre').textContent;
         //ask from any one array
         const arraySelector = parseFloat((Math.random()*1).toString().slice(0,4)); //values <1 and upto two point decimal will be generated
+        let index = null;
         if(arraySelector < 0.33){
             //ask from levelTestKeysArray1by3
-            let index = Math.floor(Math.random()*this.elements.levelTestKeysArray1by3.length)
+            index = Math.floor(Math.random()*this.elements.levelTestKeysArray1by3.length) //pick any index between 0 to 'levelTestKeysArray1by3.length'
             this.elements.randomKey = this.elements.levelTestKeysArray1by3[index]
         }
         else{
             //ask from levelTestKeysArray2by3
-            let index = Math.floor(Math.random()*this.elements.levelTestKeysArray2by3.length)
+            index = Math.floor(Math.random()*this.elements.levelTestKeysArray2by3.length)   //pick any element of index between 0 to 'levelTestKeysArray2by3.length'
             this.elements.randomKey = this.elements.levelTestKeysArray2by3[index]
         }
-        this.elements.playButtonAnswer = this.elements.morseCodeValuesArray[this.elements.morseCodeKeysArray.indexOf(this.elements.randomKey)]
-        this.elements.visualBoxText = `?`;
+        // this.elements.playButtonAnswer.textContent = this.elements.morseCodeValuesArray[this.elements.morseCodeKeysArray.indexOf(this.elements.randomKey)]
+        playButtonAnswer.textContent = this.elements.morseCodeValuesArray[index]
+        visualBoxText.textContent = "?";
     },
 
-    init() {        
-        this.elements.levelNumber = document.querySelector('#level-number').textContent;
-
+    init() {    
         this.elements.morseCodeRawKeysArray = Object.keys(this.morseCodes); //["_E", "_T", "_A","_N",...]
         this.elements.morseCodeKeysArray = this.elements.morseCodeRawKeysArray.map(rawKey => {return rawKey.slice(1)}); //["E", "T", "A","N",...]
 
-        this.elements.morseCodeValuesArray = Object.values(this.morseCodes);
+        this.elements.morseCodeValuesArray = Object.values(this.morseCodes); //[ ".", "-", ".-", "-.", ...]
 
-        this.elements.levelTestKeysArray2by3 = this.elements.morseCodeKeysArray.slice(0, 2*this.elements.levelNumber);
-        this.elements.levelTestKeysArray1by3 = [this.elements.morseCodeKeysArray[0]];
-        //this.elements.levelTestValuesArray = this.elements.morseCodeValuesArray.slice(0, 2*levelNumber);
+        this.elements.levelTestKeysArray2by3 = this.elements.morseCodeKeysArray.slice(0, 2*levelNumber.textContent); // [ "E", "T" ] iff levelNumber==1
+        this.elements.levelTestKeysArray1by3 = [this.elements.morseCodeKeysArray[0]];//["E"]
+        // this.elements.levelTestValuesArray = this.elements.morseCodeValuesArray.slice(0, 2*levelNumber.textContent);
         this.asker();
     }
 }
