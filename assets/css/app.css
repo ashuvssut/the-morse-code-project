@@ -606,6 +606,10 @@ section#love-msg > h3 {
   }
 }
 
+#keyboard .keyboard-div .keyboard .keyboard__key .hidden {
+  visibility: hidden;
+}
+
 .hamburger {
   background-color: #520567;
   padding: 4px 7px;

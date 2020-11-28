@@ -62,14 +62,28 @@ const Logic = {
         morseCodeValuesArray: null,
         levelTestKeysArray2by3: null,//Test elements with progress<100% stay here //probability of asking from this array = 2/3
         levelTestKeysArray1by3: new Set(),//Test elements with progress=100% stay here //probability of asking from this array = 1/3
-        //levelTestValuesArray: null,
-        firstRun1: true,
-        firstRun2: true,
         randomKey: null,
+        firstRun1: true,
+        firstRun2: true, 
 
+        helpOn:true,
+    },
+
+    helpInit() {
+        document.querySelectorAll('.answer').forEach(ansDiv => {
+            ansDiv.classList.remove('hidden');
+        });
     },
 
     judge(obj) {//always called when a keyboard_key is being pressed
+        if (!(this.elements.helpOn && this.elements.firstRun2)) {
+            document.querySelectorAll('.answer').forEach(ansDiv => {
+                ansDiv.classList.add('hidden');
+            });
+            this.elements.helpOn = false;
+        }
+
+        //judging starts here
         let kbKeyAnswer = obj.querySelector('.answer');
         let progressBar = obj.querySelector('.progress-bar');
         let kbKeyWidth = document.querySelector('.keyboard__key').offsetWidth;
@@ -105,7 +119,7 @@ const Logic = {
             }, 1000);
             
             if (progressBar.offsetWidth > 0.2 * kbKeyWidth) {
-                progressBar.style.width = (progressBar.offsetWidth - 0.2 * kbKeyWidth) + 'px';; //progress++
+                progressBar.style.width = (progressBar.offsetWidth - 0.2 * kbKeyWidth) + 'px'; //progress++
             }
             let hasKey = this.elements.levelTestKeysArray1by3.has(this.elements.randomKey); //if set has the asked key or not
             if (hasKey) {//if that asked key exist in the levelTestKeysArray2by3 array
@@ -116,6 +130,7 @@ const Logic = {
     },
 
     asker() {
+
         if (this.elements.firstRun1) {
             this.elements.randomKey = document.getElementById("first-element").textContent;
             let index = this.elements.morseCodeKeysArray.indexOf(this.elements.randomKey); //find the index of the asked key in morseCodeKeysArray
@@ -161,6 +176,10 @@ const Logic = {
     },
 
     init() {
+        this.helpInit();
+        document.querySelectorAll('.progress-bar').forEach(progressBar => {
+            progressBar.style.width = "0"
+        });
 
         this.elements.firstRun1 = true;
         this.elements.firstRun2 = true;
