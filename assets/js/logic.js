@@ -63,11 +63,11 @@ const Logic = {
         levelTestKeysArray2by3: null,//Test elements with progress<100% stay here //probability of asking from this array = 2/3
         levelTestKeysArray1by3: new Set(),//Test elements with progress=100% stay here //probability of asking from this array = 1/3
         //levelTestValuesArray: null,
-        
+        firstRun:true,
         randomKey:null,
         
     },
-    secondaryMessages : [
+    messages : [
         `Incorrect,
         Try Again!`,
         `Correct!`
@@ -92,7 +92,8 @@ const Logic = {
 
             if (this.elements.levelTestKeysArray2by3.length === 0) {
                 //CONGO LVL PASSED
-                document.querySelector('.greetings').style.display = "block";
+                document.querySelector('.greetings').classList.toggle('close');
+                Logic.init();
             }
             else {
                 this.asker();   
@@ -136,6 +137,11 @@ const Logic = {
     },
 
     init() {    
+
+        // document.querySelectorAll('.progress-bar').forEach(progressBar => {
+        //     progressBar.style.width = "0"
+        // });
+
         this.elements.morseCodeRawKeysArray = Object.keys(this.morseCodes); //["_E", "_T", "_A","_N",. . .]
         this.elements.morseCodeKeysArray = this.elements.morseCodeRawKeysArray.map(rawKey => {return rawKey.slice(1)}); //["E", "T", "A","N",. . .]
 

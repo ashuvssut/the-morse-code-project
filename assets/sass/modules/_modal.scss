@@ -1,7 +1,10 @@
 .greetings {
     @include flex-center();
+    transform: translate3d(0, 0, 0) translateY(-75vh);
+    transition: transform 0.3s ease-in-out;
     .greeting-box {
         padding: 30px;
+        padding-top: 60px;
         position: absolute;
         top: 30%;
         z-index: 100;
@@ -10,18 +13,18 @@
         background-color: $pink;
         border-radius: 5px;
         box-shadow: 1px 10px 100px $pink;
-        transform: translate3d(0, 0, 0);
-
-        transition: transform 0.3s ease-in-out;
         p {
+            display: block;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 10px;
             font-size: 40px;
             font-weight: 900;
             color: $highlight;
         }
     }
-    .close {
-        transform: translate3d(-600px, -600px, 0);
-    }
+    
+}
+.close {
+    transition: transform 0.3s ease-in-out;
+    transform: translate3d(-600px, -600px, 0) translateY(0);
 }

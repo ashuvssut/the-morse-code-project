@@ -3,5 +3,5 @@
 //      click and area outside the modal
 
 function closeGreeting(){
-    document.querySelector('.greeting-box').classList.toggle('close');
+    document.querySelector('.greetings').classList.toggle('close');
 }
