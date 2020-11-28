@@ -116,7 +116,7 @@ const Keyboard = {//Keyboard Object to hold all elements related to it to make t
     },
 
     _triggerEvent(handlerName){
-        console.log("Event Triggered! Event Name: "+handlerName);
+        // console.log("Event Triggered! Event Name: "+handlerName);
     },
 
 };

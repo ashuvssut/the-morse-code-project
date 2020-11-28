@@ -61,7 +61,7 @@ const Logic = {
         morseCodeKeysArray: null,
         morseCodeValuesArray: null,
         levelTestKeysArray2by3: null,//Test elements with progress<100% stay here //probability of asking from this array = 2/3
-        levelTestKeysArray1by3: null,//Test elements with progress=100% stay here //probability of asking from this array = 1/3
+        levelTestKeysArray1by3: new Set(),//Test elements with progress=100% stay here //probability of asking from this array = 1/3
         //levelTestValuesArray: null,
         
         randomKey:null,
@@ -86,7 +86,7 @@ const Logic = {
                 let index = this.elements.levelTestKeysArray2by3.indexOf(obj.textContent.slice(0,1)) //select the index of the asked key
                 if (index > -1) {//if that asked key exist in the levelTestKeysArray2by3 array
                     this.elements.levelTestKeysArray2by3.splice(index, 1); //remove key
-                    this.elements.levelTestKeysArray1by3.push(obj.textContent.slice(0,1)); //add that key to the other array
+                    this.elements.levelTestKeysArray1by3.add(obj.textContent.slice(0,1)); //add that key to the other array
                 }
             }
 
@@ -102,9 +102,9 @@ const Logic = {
             if (progressBar.offsetWidth > 0.2 *kbKeyWidth) {
                 progressBar.style.width = (progressBar.offsetWidth - 0.2 * kbKeyWidth) + 'px';; //progress++
             }
-            let index = this.elements.levelTestKeysArray1by3.indexOf(this.elements.randomKey); //select the index of the asked key
-            if (index > -1) {//if that asked key exist in the levelTestKeysArray2by3 array
-                this.elements.levelTestKeysArray1by3.splice(index, 1); //remove key
+            let hasKey = this.elements.levelTestKeysArray1by3.has(this.elements.randomKey); //if set has the asked key or not
+            if (hasKey) {//if that asked key exist in the levelTestKeysArray2by3 array
+                this.elements.levelTestKeysArray1by3 = new Set([...this.elements.levelTestKeysArray1by3.splice(index, 1)]); //remove key
                 this.elements.levelTestKeysArray2by3.push(this.elements.randomKey); //add that key to the other array
             }
         }
@@ -119,8 +119,8 @@ const Logic = {
 
         if(arraySelector < 0.33){
             //ask from levelTestKeysArray1by3
-            let index = Math.floor(Math.random() * this.elements.levelTestKeysArray1by3.length);//pick any index between 0 to 'levelTestKeysArray1by3.length'
-            this.elements.randomKey = this.elements.levelTestKeysArray1by3[index];
+            let index = Math.floor(Math.random() * this.elements.levelTestKeysArray1by3.size);//pick any index between 0 to 'levelTestKeysArray1by3.length'
+            this.elements.randomKey = [...this.elements.levelTestKeysArray1by3][index];//[...set] makes an array out of the set. here we selected the key at Index=index from the newly made set
             console.log('asked from 1/3:' + this.elements.randomKey);
         }
         else{
@@ -142,7 +142,7 @@ const Logic = {
         this.elements.morseCodeValuesArray = Object.values(this.morseCodes); //[ ". ", "- ", ". - ", "- . ", . . .]
 
         this.elements.levelTestKeysArray2by3 = this.elements.morseCodeKeysArray.slice(0, 2*levelNumber.textContent); // [ "E", "T" ] iff levelNumber==1
-        this.elements.levelTestKeysArray1by3 = ["E"];
+        this.elements.levelTestKeysArray1by3 = new Set(["E"]);
         // this.elements.levelTestValuesArray = this.elements.morseCodeValuesArray.slice(0, 2*levelNumber.textContent);
         this.asker();
     }
