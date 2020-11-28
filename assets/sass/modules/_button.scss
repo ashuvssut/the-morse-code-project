@@ -21,7 +21,7 @@
     border-style: none;  
 }
 .level-button{
-    @include circular-button($light-blue, 20px, 50px);
+    @include circular-button($blue1, 20px, 50px);
     border-style: none;
 }
 .fa-window-close-button{

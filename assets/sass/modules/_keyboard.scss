@@ -1,21 +1,20 @@
 #keyboard{
     height: $keyboard-height;
-    background-color: $light-blue;
+    background-color: $blue1;
     .keyboard-div{
         height:100%;
         text-align: center;
+        background: $darker-grey;
         .keyboard{
-            height:fit-content;
             border-radius: 1%;
             background: $darker-grey;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.502);
+            // box-shadow: 0 0 50px rgba(0, 0, 0, 0.502);
             user-select: none;
             text-align: center;
             padding: 1px;
             .keyboard__key{
-                height: fit-content;
                 width: 9.2%;
-                max-width: 90px;
+                max-width: 75px;
                 margin:1px;
                 margin-bottom: 2px;
                 border-radius:4px;

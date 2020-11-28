@@ -1,22 +1,22 @@
-section{
+section {
     //navbar styles are in _navbar.scss
-    &#level-board{
-        background-color: white;
+    &#level-board {
+        background-color: $black2;
         height: 60px;
         text-align: center;
-        color: $highlight;
-        font-size:20px;
+        color: $blue0;
+        font-size: 20px;
         line-height: normal;
         @include flex-center();
     }
-    &#visual{
+    &#visual {
         height: $visual-height;
         margin: 10px 0;
         position: relative;
-        .settings{
+        .settings {
             position: absolute;
             left: 5px;
-            .settings-icon{
+            .settings-icon {
                 appearance: none;
                 -webkit-appearance: none;
                 position: relative;
@@ -28,41 +28,44 @@ section{
                 border: none;
                 outline: none;
                 bottom: -4px;
-                z-index:1;
-                &::before{
+                z-index: 1;
+                &::before {
                     font-size: 35px;
                     position: absolute;
                     content: "\f013";
-                    color: rgba(225,225,225,0.7);
+                    color: rgba(225, 225, 225, 0.7);
                     font-family: FontAwesome;
                     font-weight: normal;
                     font-style: normal;
                     text-decoration: none;
                     display: block;
+                    margin: 0 auto;
                     width: 100%;
-                    height: 100%;
-                    padding: 4px 5px;
+                    text-align: center;
                     box-sizing: border-box;
                     border-radius: inherit;
                     cursor: pointer;
-                    top: -5px;
+                    top: 2px;
+                    @-moz-document url-prefix() {
+                        top: -1px;
+                    }
                 }
                 &:not(checked) {
                     transform: rotateZ(-90deg);
                     transition: all 0.7s cubic-bezier(0.9, 0, 0.33, 1);
                 }
-                &:checked{
+                &:checked {
                     transform: rotateZ(0);
                     transition: all 0.7s cubic-bezier(0.9, 0, 0.33, 1);
                 }
-                &:not(checked) + .audio-controls{
+                &:not(checked) + .audio-controls {
                     height: 0px;
                     width: 0px;
                     padding: 0;
                     transition: all 0.7s cubic-bezier(0.9, 0, 0.33, 1);
                     transform: rotateZ(-90deg);
                 }
-                &:checked + .audio-controls{
+                &:checked + .audio-controls {
                     width: 330px;
                     height: 100px;
                     padding: 1em;
@@ -70,70 +73,70 @@ section{
                     transform: rotateZ(0);
                 }
             }
-            .audio-controls{
-                transform-origin:left top;
+            .audio-controls {
+                transform-origin: left top;
                 background-color: white;
                 color: black;
                 border-radius: 5px;
-                box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
+                box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
                 position: relative;
                 top: -24px;
                 left: 16px;
-                overflow:hidden;
+                overflow: hidden;
                 white-space: nowrap;
-                .audio-form{
-                    #noise-control, #WPM-control{
+                .audio-form {
+                    #noise-control,
+                    #WPM-control {
                         position: relative;
                         top: 7px;
                     }
-                    #noise-switch{
+                    #noise-switch {
                         height: 40px;
                         width: 40px;
                         border-radius: 55px;
-                        box-shadow: 0 0 5px 2px rgba(0,0,0,0.2);
-                        border: 2px solid rgba(0,0,0,0.1);
-                        svg{
+                        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+                        border: 2px solid rgba(0, 0, 0, 0.1);
+                        svg {
                             height: 20px;
                             width: 35px;
                         }
-                        &[data-state="on"]{
-                            background-color: #ffd800;     
+                        &[data-state="on"] {
+                            background-color: #ffd800;
                         }
-                        &[data-state="off"]{
-                            background-color: #979797;     
+                        &[data-state="off"] {
+                            background-color: #979797;
                         }
                     }
                 }
             }
         }
-        .visual{
+        .visual {
             @include flex-center();
-            height:$visual-height;
-            .visual-box{
+            height: $visual-height;
+            .visual-box {
                 height: $visual-height;
                 width: $visual-height;
                 background-color: #c299fc61;
                 border-radius: 3%;
                 @include flex-center();
-                pre{
-                    font-family: 'Ubuntu', sans-serif;
+                pre {
+                    font-family: "Ubuntu", sans-serif;
                     font-size: 20px;
                     text-transform: uppercase;
                 }
             }
-            
         }
     }
 
     //keyboard styles are in _keyboard.scss
 
-    &#love-msg{ 
+    &#love-msg {
         height: 30px;
         text-align: center;
-        & > h3{
+        & > h3 {
             position: relative;
             z-index: -100;
-            @media (max-height:549px){
+            @media (max-height: 549px) {
                 visibility: hidden;
             }
         }
