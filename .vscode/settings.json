@@ -5,4 +5,16 @@
     "liveServer.settings.NoBrowser": true,
 
     "liveSassCompile.settings.showOutputWindow": false,
+    "liveSassCompile.settings.formats":[
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "/assets/css"
+        },
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/assets/css"
+        },
+    ],
 }
