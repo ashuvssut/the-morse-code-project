@@ -16,8 +16,10 @@ async function getAudioBuffer(audioURL) { //refer :- https://youtu.be/3NgVlAscdc
     return ctx.decodeAudioData(arrayBuffer); //arrayBuffer converted to audioBuffer. decodeAudioData() is async in nature. so it returns a promise (which if has the audioBuffer when promise is fulfilled fulfilled)
 }
 let dashAudio, dotAudio;    //variables declared to feed them with audioBuffers
-getAudioBuffer('assets/audio/_1.ogg').then(audioBuffer => dashAudio = audioBuffer);    //JS async function getAudioBuffer is nothing but a promise
-getAudioBuffer('assets/audio/_0.ogg').then(audioBuffer => dotAudio = audioBuffer);
+// getAudioBuffer('assets/audio/_1.ogg').then(audioBuffer => dashAudio = audioBuffer);    //JS async function getAudioBuffer is nothing but a promise
+// getAudioBuffer('assets/audio/_0.ogg').then(audioBuffer => dotAudio = audioBuffer);
+getAudioBuffer('https://raw.githubusercontent.com/ashuvssut/the-morse-code-project/master/assets/audio/_1.ogg?raw=true').then(audioBuffer => dashAudio = audioBuffer);    //JS async function getAudioBuffer is nothing but a promise
+getAudioBuffer('https://raw.githubusercontent.com/ashuvssut/the-morse-code-project/master/assets/audio/_0.ogg?raw=true').then(audioBuffer => dotAudio = audioBuffer);
 
 //create those audioBufferSourceNode from those audioBuffers then connect audioBufferSourceNode to the audioDestinationNode. Then just play it!
 let playSound;
