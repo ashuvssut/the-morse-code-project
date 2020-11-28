@@ -82,12 +82,21 @@ const Logic = {
             if (progressBar.offsetWidth < kbKeyWidth) {
                 progressBar.style.width = (progressBar.offsetWidth + 0.2 * kbKeyWidth) + 'px'; //progress++
             }
-            let index = this.elements.levelTestKeysArray2by3.indexOf(this.elements.randomKey) //select the index of the asked key
-            if (index > -1) {//if that asked key exist in the levelTestKeysArray2by3 array
-                this.elements.levelTestKeysArray2by3.splice(index, 1); //remove key
-                this.elements.levelTestKeysArray1by3.push(this.elements.randomKey); //add that key to the other array
+            if (progressBar.offsetWidth > kbKeyWidth - 2) {
+                let index = this.elements.levelTestKeysArray2by3.indexOf(obj.textContent.slice(0,1)) //select the index of the asked key
+                if (index > -1) {//if that asked key exist in the levelTestKeysArray2by3 array
+                    this.elements.levelTestKeysArray2by3.splice(index, 1); //remove key
+                    this.elements.levelTestKeysArray1by3.push(obj.textContent.slice(0,1)); //add that key to the other array
+                }
             }
-            this.asker();
+
+            if (this.elements.levelTestKeysArray2by3.length === 0) {
+                //CONGO LVL PASSED
+                document.querySelector('.greetings').style.display = "block";
+            }
+            else {
+                this.asker();   
+            }
         } else {
             //wrong answer => progress- - && Manipulate both TestKeysArrays accordingly
             if (progressBar.offsetWidth > 0.2 *kbKeyWidth) {
@@ -103,20 +112,25 @@ const Logic = {
 
     asker(){
         //ask from any one array
-        const arraySelector = parseFloat((Math.random()*1).toString().slice(0,4)); //values <1 and upto two point decimal will be generated
-        let index = null;
+        const arraySelector = parseFloat((Math.random() * 1).toString().slice(0, 4)); //values <1 and upto two point decimal will be generated
+        console.log(arraySelector);
+        console.log(this.elements.levelTestKeysArray1by3);
+        console.log(this.elements.levelTestKeysArray2by3);
+
         if(arraySelector < 0.33){
             //ask from levelTestKeysArray1by3
-            index = Math.floor(Math.random()*this.elements.levelTestKeysArray1by3.length) //pick any index between 0 to 'levelTestKeysArray1by3.length'
-            this.elements.randomKey = this.elements.levelTestKeysArray1by3[index]
+            let index = Math.floor(Math.random() * this.elements.levelTestKeysArray1by3.length);//pick any index between 0 to 'levelTestKeysArray1by3.length'
+            this.elements.randomKey = this.elements.levelTestKeysArray1by3[index];
+            console.log('asked from 1/3:' + this.elements.randomKey);
         }
         else{
             //ask from levelTestKeysArray2by3
-            index = Math.floor(Math.random()*this.elements.levelTestKeysArray2by3.length)   //pick any element of index between 0 to 'levelTestKeysArray2by3.length'
-            this.elements.randomKey = this.elements.levelTestKeysArray2by3[index]
+            let index = Math.floor(Math.random() * this.elements.levelTestKeysArray2by3.length);  //pick any element of index between 0 to 'levelTestKeysArray2by3.length'
+            this.elements.randomKey = this.elements.levelTestKeysArray2by3[index];
+            console.log('asked from 2/3:' + this.elements.randomKey )
         }
-        // this.elements.playButtonAnswer.textContent = this.elements.morseCodeValuesArray[this.elements.morseCodeKeysArray.indexOf(this.elements.randomKey)]
-        playButtonAnswer.textContent = this.elements.morseCodeValuesArray[index]
+        let index = this.elements.morseCodeKeysArray.indexOf(this.elements.randomKey); //find the index of the asked key in morseCodeKeysArray
+        playButtonAnswer.textContent = this.elements.morseCodeValuesArray[index]//retrieve the key's value from morseCodeValuesArray
         visualBoxTextBox.textContent = "?";
         handlePlayPress(document.querySelector('#play'));
     },
@@ -128,7 +142,7 @@ const Logic = {
         this.elements.morseCodeValuesArray = Object.values(this.morseCodes); //[ ". ", "- ", ". - ", "- . ", . . .]
 
         this.elements.levelTestKeysArray2by3 = this.elements.morseCodeKeysArray.slice(0, 2*levelNumber.textContent); // [ "E", "T" ] iff levelNumber==1
-        this.elements.levelTestKeysArray1by3 = [this.elements.morseCodeKeysArray[0]];//["E"]
+        this.elements.levelTestKeysArray1by3 = ["E"];
         // this.elements.levelTestValuesArray = this.elements.morseCodeValuesArray.slice(0, 2*levelNumber.textContent);
         this.asker();
     }
