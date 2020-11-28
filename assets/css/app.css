@@ -405,6 +405,11 @@ section#visual .visual .visual-box {
 
 section#visual .visual .visual-box pre {
   font-family: "Ubuntu", sans-serif;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  text-align: center;
   font-size: 20px;
   text-transform: uppercase;
 }
