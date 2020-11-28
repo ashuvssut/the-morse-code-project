@@ -83,8 +83,8 @@ const Keyboard = {//Keyboard Object to hold all elements related to it to make t
             
             //>>> KEY SUB_DIV
             //The answer-div is set. Now add the progress bar
-            const breakElement2= document.createElement("br");
-            keyElement.appendChild(breakElement2);
+            // const breakElement2= document.createElement("br");
+            // keyElement.appendChild(breakElement2);
             
             //Add progress bar with default CSS class
             const progressBar = document.createElement("div");
