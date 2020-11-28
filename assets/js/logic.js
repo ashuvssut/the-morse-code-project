@@ -81,19 +81,21 @@ const Logic = {
         if (choice === -1 && currentLvl > 1) {
             newLvlNum = --currentLvl;
         }
-        if (choice === 1 && currentLvl < 19) {
+        if (choice === 1 && currentLvl < 20) {
             newLvlNum = ++currentLvl;
         }
         if (newLvlNum !== undefined) {
             document.getElementById('level-number').textContent = newLvlNum;
-            document.getElementById('first-element').textContent = this.elements.morseCodeKeysArray[2 * newLvlNum];
-            document.getElementById('second-element').textContent = this.elements.morseCodeKeysArray[2 * newLvlNum + 1];
+            document.getElementById('first-element').textContent = this.elements.morseCodeKeysArray[2 * newLvlNum - 2];
+            document.getElementById('second-element').textContent = this.elements.morseCodeKeysArray[2 * newLvlNum - 1];
             this.init();
         }
 
     },
 
     judge(obj) {//always called when a keyboard_key is being pressed
+        document.querySelector('.play').classList.add("hide-tooltip");
+
         if (!(this.elements.helpOn && this.elements.firstRun2)) {
             document.querySelectorAll('.answer').forEach(ansDiv => {
                 ansDiv.classList.add('hidden');

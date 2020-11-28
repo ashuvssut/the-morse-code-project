@@ -20,6 +20,23 @@
     @include circular-button($yellow-orange, 15px, 50px);
     border-style: none;  
 }
+.play{
+    position: relative;
+    &::after{
+        content: "Play and observe the Morse Code and select its key.";
+        display: block;
+        position: absolute;
+        background-color: rgba(0,0,0,0.8);
+        width: 193px;
+        transform: translate(-91%,41%) rotateZ(-5deg);
+        border-radius: 15px 0 15px 15px;        
+    }
+}
+.hide-tooltip{
+    &::after{
+        display: none;
+    }
+}
 .level-button{
     @include circular-button($blue1, 20px, 50px);
     border-style: none;

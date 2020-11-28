@@ -28,7 +28,7 @@ section {
                 border: none;
                 outline: none;
                 bottom: -4px;
-                z-index: 1;
+                z-index: 3;
                 &::before {
                     font-size: 35px;
                     position: absolute;
@@ -74,6 +74,7 @@ section {
                 }
             }
             .audio-controls {
+                z-index: 3;
                 transform-origin: left top;
                 background-color: white;
                 color: black;

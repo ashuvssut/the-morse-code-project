@@ -292,7 +292,7 @@ section#visual .settings .settings-icon {
   border: none;
   outline: none;
   bottom: -4px;
-  z-index: 1;
+  z-index: 3;
 }
 
 section#visual .settings .settings-icon::before {
@@ -347,6 +347,7 @@ section#visual .settings .settings-icon:checked + .audio-controls {
 }
 
 section#visual .settings .audio-controls {
+  z-index: 3;
   transform-origin: left top;
   background-color: white;
   color: black;
@@ -638,6 +639,24 @@ section#love-msg > h3 {
   border-radius: 100%;
   outline: none;
   border-style: none;
+}
+
+.play {
+  position: relative;
+}
+
+.play::after {
+  content: "Play and observe the Morse Code and select its key.";
+  display: block;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 193px;
+  transform: translate(-91%, 41%) rotateZ(-5deg);
+  border-radius: 15px 0 15px 15px;
+}
+
+.hide-tooltip::after {
+  display: none;
 }
 
 .level-button {
