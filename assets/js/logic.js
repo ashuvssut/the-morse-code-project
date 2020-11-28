@@ -92,6 +92,7 @@ const Logic = {
 
             if (this.elements.levelTestKeysArray2by3.length === 0) {
                 //CONGO LVL PASSED
+                document.getElementById("audio_win").play();
                 document.querySelector('.greetings').classList.toggle('close');
                 Logic.init();
             }
