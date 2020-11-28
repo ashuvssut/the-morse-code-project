@@ -690,6 +690,6 @@ section#love-msg > h3 {
 
 .close {
   transition: transform 0.3s ease-in-out;
-  transform: translate3d(-600px, -600px, 0) translateY(0);
+  transform: translate3d(-130vw, -130vh, 0) translateY(0);
 }
 /*# sourceMappingURL=app.css.map */
