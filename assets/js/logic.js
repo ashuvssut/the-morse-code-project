@@ -64,15 +64,33 @@ const Logic = {
         levelTestKeysArray1by3: new Set(),//Test elements with progress=100% stay here //probability of asking from this array = 1/3
         randomKey: null,
         firstRun1: true,
-        firstRun2: true, 
+        firstRun2: true,
 
-        helpOn:true,
+        helpOn: true,
     },
 
     helpInit() {
         document.querySelectorAll('.answer').forEach(ansDiv => {
             ansDiv.classList.remove('hidden');
         });
+    },
+
+    lvlChange(choice) {
+        let currentLvl = parseInt(document.getElementById('level-number').textContent);
+        let newLvlNum;
+        if (choice === -1 && currentLvl > 1) {
+            newLvlNum = --currentLvl;
+        }
+        if (choice === 1 && currentLvl < 19) {
+            newLvlNum = ++currentLvl;
+        }
+        if (newLvlNum !== undefined) {
+            document.getElementById('level-number').textContent = newLvlNum;
+            document.getElementById('first-element').textContent = this.elements.morseCodeKeysArray[2 * newLvlNum];
+            document.getElementById('second-element').textContent = this.elements.morseCodeKeysArray[2 * newLvlNum + 1];
+            this.init();
+        }
+
     },
 
     judge(obj) {//always called when a keyboard_key is being pressed
@@ -117,7 +135,7 @@ const Logic = {
             setTimeout(() => {
                 visualBoxTextBox.textContent = "?";
             }, 1000);
-            
+
             if (progressBar.offsetWidth > 0.2 * kbKeyWidth) {
                 progressBar.style.width = (progressBar.offsetWidth - 0.2 * kbKeyWidth) + 'px'; //progress++
             }
