@@ -4,7 +4,7 @@
 
 - A WebApp that teaches people Morse Code and helps to remember Morse codes easily.
 
-- Used HTML, SASS and JavaScript. Used JS Object-oriented programming.
+- Used HTML, SASS and JavaScript.
 
 - Used JS WebAudio API to:
 
