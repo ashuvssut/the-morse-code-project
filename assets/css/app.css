@@ -372,17 +372,17 @@ section#visual .settings .settings-icon:checked + .audio-controls {
   transition: all 0.7s cubic-bezier(0.9, 0, 0.33, 1);
   -webkit-transform: rotateZ(0);
           transform: rotateZ(0);
-  top: 5px;
-  left: 5px;
 }
 
 section#visual .settings .audio-controls {
-  z-index: 3;
+  z-index: 0;
   -webkit-transform-origin: left top;
           transform-origin: left top;
   background-color: white;
   color: black;
   border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
   position: relative;
   top: -24px;
   left: 16px;
