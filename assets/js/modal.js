@@ -5,3 +5,13 @@
 function closeGreeting(){
     document.querySelector('.greetings').classList.toggle('close');
 }
+
+function playAgain() {
+    closeGreeting();
+    handlePlayPress(document);
+}
+
+function nextLevel() {
+    closeGreeting();
+    Logic.lvlChange(1);
+}

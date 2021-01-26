@@ -21,6 +21,12 @@
             font-weight: 900;
             color: $highlight;
         }
+        .greeting-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
     }
     
 }
