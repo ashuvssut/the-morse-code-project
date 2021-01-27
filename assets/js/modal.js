@@ -8,7 +8,7 @@ function closeGreeting(){
 
 function playAgain() {
     closeGreeting();
-    handlePlayPress(document);
+    handlePlayPress(document.querySelector('#play'));
 }
 
 function nextLevel() {
