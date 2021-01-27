@@ -20,6 +20,11 @@
     @include circular-button($yellow-orange, 15px, 50px);
     border-style: none;  
 }
+
+.modal-buttons {
+    padding-top: 4px;
+}
+
 .play{
     position: relative;
     &::after{
